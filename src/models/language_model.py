@@ -20,4 +20,4 @@ class LanguageModel(AbstractModel):
     @classmethod
     def list_dicts(cls):
         films = cls._collection.find()
-        return [film for film in films]
+        return [film.to_dict() for film in films]
