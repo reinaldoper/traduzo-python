@@ -1,17 +1,23 @@
-# from .abstract_model import AbstractModel
-# from database.db import db
+from .abstract_model import AbstractModel
+from database.db import db
 
 
 # Req. 1
-class LanguageModel:
-    def __init__(self):
-        raise NotImplementedError
+class LanguageModel(AbstractModel):
+    _collection = db["languages"]
+  
+    def __init__(self, data):
+        super().__init__(data)
 
     # Req. 2
     def to_dict(self):
-        raise NotImplementedError
+        return {
+                'name': self.data['name'],
+                'acronym': self.data['acronym'],
+                }
 
     # Req. 3
     @classmethod
     def list_dicts(cls):
-        raise NotImplementedError
+        films = cls._collection.find()
+        return [film for film in films]
