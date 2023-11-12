@@ -19,5 +19,5 @@ class LanguageModel(AbstractModel):
     # Req. 3
     @classmethod
     def list_dicts(cls):
-        films = cls._collection.find()
+        films = cls.find()
         return [film.to_dict() for film in films]
