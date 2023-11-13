@@ -16,6 +16,11 @@ def test_request_history():
             "translate_to": "pt",
         },
     ]
-    history_json = HistoryModel.list_as_json()
 
-    assert json.loads(history_json) == expected_data
+    history_json = HistoryModel.list_as_json()
+    history_data = json.loads(history_json)
+
+    for item in history_data:
+        item.pop('_id', None)
+
+    assert history_data == expected_data
