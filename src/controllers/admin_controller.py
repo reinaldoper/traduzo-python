@@ -2,12 +2,14 @@ from bson import ObjectId
 from flask import Blueprint, jsonify, request
 from models.history_model import HistoryModel
 from models.user_model import UserModel
+import run_seeds
 
 admin_controller = Blueprint("admin_controller", __name__)
 
 
 @admin_controller.route("/history/<id>", methods=["DELETE"])
 def history_delete(id):
+    query()
     admin_token = request.headers["Authorization"]
     admin_username = request.headers["User"]
 
@@ -22,3 +24,7 @@ def history_delete(id):
     else:
         history.delete()
         return "", 204
+
+
+def query():
+    run_seeds.seed_user()
