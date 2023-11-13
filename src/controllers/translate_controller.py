@@ -11,18 +11,7 @@ translate_controller = Blueprint("translate_controller", __name__)
 # Reqs. 4 e 5
 @translate_controller.route("/", methods=["GET", "POST"])
 def index():
-    seed_language()
-    languages = LanguageModel.list_dicts()
-    obj = []
-    for lingua in languages:
-        if lingua['name'] == 'english':
-            obj.append(lingua)
-        if lingua['name'] == 'afrikaans':
-            obj.append(lingua)
-        if lingua['name'] == 'portuguese':
-            lingua['name'] = 'portugues'
-            obj.append(lingua)
-    languages = obj
+    languages = query()
     if request.method == "POST":
         text_to_translate = request.form.get("text-to-translate")
         translate_from = request.form.get("translate-from")
@@ -62,3 +51,18 @@ def index():
 @translate_controller.route("/reverse", methods=["POST"])
 def reverse():
     raise NotImplementedError
+
+
+def query():
+    seed_language()
+    languages = LanguageModel.list_dicts()
+    obj = []
+    for lingua in languages:
+        if lingua['name'] == 'english':
+            obj.append(lingua)
+        if lingua['name'] == 'afrikaans':
+            obj.append(lingua)
+        if lingua['name'] == 'portuguese':
+            lingua['name'] = 'portugues'
+            obj.append(lingua)
+    return obj
