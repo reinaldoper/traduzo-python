@@ -11,16 +11,14 @@
     <div class="wrapper">
       <form method="post">
         <div class="text-input">
-          <textarea name="text-to-translate" spellcheck="false" class="from-text" placeholder="O que deseja traduzir">{{ data['text_to_translate'] }}</textarea>
-          <textarea spellcheck="false" readonly disabled class="to-text">{{ data['translated'] }}</textarea>
+          <textarea name="text-to-translate" spellcheck="false" class="from-text" placeholder="O que deseja traduzir">{% if data['text_to_translate'] %}{{ data['text_to_translate'] }}{% endif %}</textarea>
+          <textarea spellcheck="false" readonly disabled class="to-text">{% if data['translated'] %}{{ data['translated'] }}{% endif %}</textarea>
         </div>
         <ul class="controls">
           <li class="row from">
             <select name="translate-from">
-              {% for language in data['languages'] %}
-                  <option value="{{ language.acronym }}" {% if language.acronym == data['translate_from'] %}selected{% endif %}>
-                      {{ language.name | upper }}
-                  </option>
+              {% for language in languages %}
+                  <option value="{{ language.acronym }}" {% if language.acronym == data['translate_from'] %}selected{% endif %}>{{ language.name | upper }}</option>
               {% endfor %}
             </select>
           </li>
@@ -29,10 +27,8 @@
           </div>
           <li class="row to">
             <select name="translate-to">
-              {% for language in data['languages'] %}
-                  <option value="{{ language.acronym }}" {% if language.acronym == data['translate_to'] %}selected{% endif %}>
-                      {{ language.name | upper }}
-                  </option>
+              {% for language in languages %}
+                  <option value="{{ language.acronym }}" {% if language.acronym == data['translate_to'] %}selected{% endif %}>{{ language.name | upper }}</option>
               {% endfor %}
             </select>
           </li>
