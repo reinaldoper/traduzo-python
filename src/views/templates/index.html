@@ -20,9 +20,9 @@
           <li class="row from">
             <select name="translate-from">
               {% for language in data['languages'] %}
-                <option value="{{ language.acronym }}" {% if language.acronym == data['translate_from'] %}selected{% endif %}>
-                    {{ language.name | upper }}
-                </option>
+                  <option value="{{ language.acronym }}" {% if language.acronym == data['translate_from'] %}selected{% endif %}>
+                      {{ language.name | upper }}
+                  </option>
               {% endfor %}
             </select>
           </li>
