@@ -13,7 +13,16 @@ translate_controller = Blueprint("translate_controller", __name__)
 def index():
     seed_language()
     languages = LanguageModel.list_dicts()
-    print(languages)
+    obj = []
+    for lingua in languages:
+        if lingua['name'] == 'english':
+            obj.append(lingua)
+        if lingua['name'] == 'afrikaans':
+            obj.append(lingua)
+        if lingua['name'] == 'portuguese':
+            lingua['name'] = 'portugues'
+            obj.append(lingua)
+    languages = obj
     if request.method == "POST":
         text_to_translate = request.form.get("text-to-translate")
         translate_from = request.form.get("translate-from")
