@@ -4,6 +4,10 @@
 
 - Uma ferramenta de tradução de textos entre vários idiomas, utilizando Python com o Framework Flask, para criar uma aplicação Server Side. Ou seja, o Back-end irá fornecer a camada View, para a pessoa usuária.
 
+![Tela](src/views/static/images/traduzo.png)
+
+A partir deste repositório você encontra os detalhes de como estruturar o desenvolvimento do seu projeto.
+
 <details>
   <summary>📝 Detalhes do projeto </summary>
 
