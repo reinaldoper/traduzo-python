@@ -1,8 +1,9 @@
 # :construction: README customizado em construção ! :construction:
 
-## Traduzo-Aceleração python
+## Traduzo-Aceleração python da Trybe.
 
 - Uma ferramenta de tradução de textos entre vários idiomas, utilizando Python com o Framework Flask, para criar uma aplicação Server Side. Ou seja, o Back-end irá fornecer a camada View, para a pessoa usuária.
+- A trybe disponibilizou os requisitos a serem desenvolvidos neste projeto.
 
 ![Tela](src/views/static/images/traduzo.png)
 
