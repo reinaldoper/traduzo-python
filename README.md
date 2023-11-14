@@ -15,13 +15,10 @@ A partir deste repositório você encontra os detalhes de como estruturar o dese
 - Implementar uma API utilizando arquitetura em camadas MVC;
 - Utilizar o Docker para projetos Python;
 - Aplicar conhecimentos de Orientação a Objetos no desenvolvimento WEB.
-- Escrever testes para APIs para garantir a implementação dos endpoints;
 - Interagir com um banco de dados não relacional MongoDB;
 - Desenvolver páginas web Server Side.
 
 </details>
-
-<details>
 
 ## Preparando Ambiente
 
